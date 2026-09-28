@@ -1,0 +1,417 @@
+/* Réinitialise les marges et le modèle de boîte pour tous les éléments. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Définit la typographie et les couleurs générales de la page. */
+body {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: #050b14;
+    color: #e6edf3;
+    line-height: 1.6;
+}
+/* Présente les sections avec une bordure animée et de l'espace intérieur. */
+section {
+    border: 1px solid #6aa8ff;
+    border-radius: 15px;
+    animation: softBorder 5s ease-in-out infinite;
+    margin: 20px;
+    padding:10px;
+    
+    
+}
+/* Retire la bordure animée de la section d'accueil. */
+#accueil{
+    border: none !important;
+    animation: none !important;
+    box-shadow: none !important;
+    border-color: none !important;
+}
+/* ===== SOFT ANIMATED BORDERS ===== */
+
+@keyframes softBorder {
+    0% {
+        border-color: #6aa8ff;
+        box-shadow: 0 0 8px rgba(106,168,255,.25);
+    }
+
+    33% {
+        border-color: #b58cff;
+        box-shadow: 0 0 8px rgba(181,140,255,.25);
+    }
+
+    66% {
+        border-color: #78e0d0;
+        box-shadow: 0 0 8px rgba(120,224,208,.25);
+    }
+
+    100% {
+        border-color: #6aa8ff;
+        box-shadow: 0 0 8px rgba(106,168,255,.25);
+    }
+}
+
+/* Tous les éléments avec border */
+
+section:not(#accueil),
+.exp-item,
+table,
+input,
+textarea,
+iframe,
+video,
+audio,
+.btn,
+.profile img {
+    border: 1px solid #6aa8ff;
+    animation: softBorder 5s ease-in-out infinite;
+}
+
+
+
+/* Barre de navigation fixe en haut de la page. */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 70px;
+    border-bottom: 1px solid darkblue;
+    padding: 0 6%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: #0b63df;
+    backdrop-filter: blur(5px);
+}
+
+/* Taille et cadrage du logo dans la navigation. */
+.nav-logo img {
+    display: block;
+    width: 52px;
+    height: 48px;
+    object-fit: contain;
+}
+
+/* Aligne les liens de navigation sur une ligne. */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Apparence des liens et effet visuel au survol. */
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: #e6edf3;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: skyblue;
+    background: rgba(135, 206, 250, 0.12);
+    transform: translateY(-1px);
+    text-shadow: 0 0 4px skyblue;
+}
+
+/* Adapte la navigation aux écrans étroits. */
+@media (max-width: 700px) {
+    nav {
+        flex-direction: column;
+        gap: 8px;
+        padding: 8px 4%;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        padding: 6px 8px;
+    }
+}
+ 
+/* Styles des titres principaux et de leur texte mis en évidence. */
+h1 {
+    color: seashell;
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 1px -1px 2px white;
+    margin-top: 20px;
+}
+
+h1 span {
+    color: blueviolet;
+    text-shadow: 1px -1px 2px rgb(144, 59, 213);
+}
+/* Organise les contenus du CV et des médias en colonnes. */
+.media {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 40px;
+
+    background: #111d32;
+}
+
+.media h2,
+.media h3 {
+    margin-bottom: 15px;
+}
+
+
+/* Réserve un cadre au format écran large pour la vidéo. */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    aspect-ratio: 16 / 9;
+    margin-top: 15px;
+    grid-template-columns: (2,1f);
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 10px;
+}
+
+/* Présentation de l'accueil avec une image de fond assombrie. */
+.hero {
+    min-height: 270px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 12, 29, .95),
+            rgba(5, 17, 38, .65),
+            rgba(4, 13, 28, .2)
+        ),
+        url("images\ \(1\).jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+
+    padding: 50px 6%;
+}
+/* Affiche la photo de profil en cercle. */
+.profile img {
+    width: 140px;
+    height: 140px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 3px solid #2378ff;
+
+    box-shadow: 0 0 20px rgba(35,120,255,.3);
+}
+/* Mise en forme du texte et de la liste du profil. */
+.profile-text p{
+ line-height: 1.5;
+ color:#ccd5e4;
+}
+.profile-text h3{
+    margin-top:20px;
+}
+.profile-text ul{
+    padding-left:20px;
+    margin-bottom: 4px;
+    }
+/* Disposition de la section À propos. */
+#apropos {
+    min-height: 220px;
+
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+
+    background: #111d32;
+}
+/* Présente l'expérience professionnelle sur deux colonnes. */
+.work {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+
+    background: #07111f;
+}
+
+/* Met en évidence chaque élément d'expérience ou de projet. */
+.exp-item {
+    border-left: 4px solid #635bff;
+    padding: 7px 20px;
+    margin: 18px 0;
+}
+
+.exp-item h3 {
+    color: #e8edf7;
+    margin-bottom: 8px;
+}
+
+.exp-item p {
+    color: #bdc8da;
+    width: 100%;
+    border-collapse: collapse;
+
+    border: 1px solid #30445f;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Styles des cellules et de l'en-tête du tableau des projets. */
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #26374e;
+}
+
+th {
+    background: #17263c;
+}
+
+td {
+    background: #0d192b;
+}
+/* Espacement du texte de la section CV. */
+.cv p {
+    margin-bottom: 12px;
+}
+
+.purple {
+    background: linear-gradient(90deg, #6954ff, #8a43e8);
+}
+
+/* Dimensions et alignement des vidéos intégrées. */
+.video iframe {
+    width: 100%;
+    max-height: 150px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Organise les champs du formulaire en grille. */
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 25px;
+}
+
+/* Empile le libellé et le champ correspondant. */
+.input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+label {
+    font-size: 13px;
+}
+
+/* Apparence des champs de saisie et de la zone de message. */
+input,
+textarea {
+    width: 100%;
+
+    background: #12223a;
+    color: white;
+
+    border: 1px solid #304968;
+    border-radius: 5px;
+
+    padding: 12px;
+    outline: none;
+}
+
+/* Indique visuellement le champ actuellement sélectionné. */
+input:focus,
+textarea:focus {
+    border-color: #2378ff;
+    box-shadow: 0 0 8px rgba(35,120,255,.2);
+}
+
+/* Place la zone de message dans la colonne de droite. */
+.msg1 {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+}
+
+textarea {
+    height: 75px;
+    resize: none;
+}
+
+/* Style du bouton d'envoi et de son état au survol. */
+form button {
+    grid-column: 2;
+
+    border: none;
+    border-radius: 4px;
+
+    padding: 12px;
+
+    background: #1677ff;
+    color: white;
+
+    cursor: pointer;
+    font-weight: bold;
+}
+
+form button:hover {
+    background: #0b63df;
+}
+
+
+/* ================= PIED DE PAGE ================= */
+
+footer {
+    padding: 18px 6%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-top: 1px solid #293b53;
+
+    background: #07101d;
+}
+
+footer p {
+    color: #c5cfde;
+    font-size: 13px;
+}
+
+
+footer {
+    padding: 18px 6%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-top: 1px solid #293b53;
+
+    background: #07101d;
+}
+
+footer p {
+    color: #c5cfde;
+    font-size: 13px;
+}
+
+
